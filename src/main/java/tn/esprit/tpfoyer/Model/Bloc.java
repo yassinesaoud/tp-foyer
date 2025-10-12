@@ -1,10 +1,10 @@
 package tn.esprit.tpfoyer.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -12,10 +12,18 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Bloc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBloc;
-    private String nomBloc;
-    private long capaciteBLoc;
+     Long idBloc;
+     String nomBloc;
+     long capaciteBLoc;
+    @ManyToOne
+    Foyer foyer;
+
+    @OneToMany(mappedBy = "bloc")
+    List<Chambre> chambres;
+
+
 }

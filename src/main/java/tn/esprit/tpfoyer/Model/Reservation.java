@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,6 +19,9 @@ public class Reservation {
     @Temporal(TemporalType.DATE)
     private Date anneeUniversitaire;
     private Boolean estValid ;
+
+    @ManyToMany
+    List<Etudiant> etudiants;
 
 
 

@@ -2,18 +2,34 @@ package tn.esprit.tpfoyer.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+@ToString(includeFieldNames = false)
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Chambre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idChambre ;
-    private long numeroChambre;
+    @Setter(AccessLevel.NONE)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    long idChambre ;
+    public long numeroChambre;
     @Enumerated(EnumType.STRING)
-    private TypeChambre typeChambre;
+    TypeChambre typeChambre;
+    @ManyToOne
+    Bloc bloc;
+    @OneToMany
+    List<Reservation> reservations;
+
+
+
 }
