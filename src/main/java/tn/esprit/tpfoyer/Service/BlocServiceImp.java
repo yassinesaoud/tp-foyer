@@ -3,6 +3,7 @@ package tn.esprit.tpfoyer.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.Model.Bloc;
+import tn.esprit.tpfoyer.Model.TypeChambre;
 import tn.esprit.tpfoyer.Repository.BlocRepository;
 
 import java.util.List;
@@ -36,5 +37,20 @@ public class BlocServiceImp implements IBlocService {
     @Override
     public void removeBloc(Long idBloc) {
         blocRepository.deleteById(idBloc);
+    }
+
+    @Override
+    public List<Bloc> retrieveBlocsByFoyerCapacite(String capaciteFoyer) {
+        return blocRepository.findByFoyerCapaciteFoyer(capaciteFoyer);
+    }
+
+    @Override
+    public List<Bloc> retrieveBlocsByChambreType(TypeChambre typeChambre) {
+        return blocRepository.findByChambresTypeChambre(typeChambre);
+    }
+
+    @Override
+    public List<Bloc> retrieveBlocsByCapaciteRange(long lessThan, long greaterThan) {
+        return blocRepository.findByCapaciteBLocLessThanOrCapaciteBLocGreaterThan(10, 20);
     }
 }
