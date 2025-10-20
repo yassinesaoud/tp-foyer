@@ -3,7 +3,7 @@ package tn.esprit.tpfoyer.Controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.Model.Reservation;
-import tn.esprit.tpfoyer.Service.ReservationServiceImp;
+import tn.esprit.tpfoyer.Service.IReservationService;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/reservations")
 public class ReservationController {
-    ReservationServiceImp reservationService;
+    IReservationService reservationService;
 
     @GetMapping("/all")
     public List<Reservation> getReservations() {

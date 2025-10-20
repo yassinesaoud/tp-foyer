@@ -3,7 +3,7 @@ package tn.esprit.tpfoyer.Controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.Model.Etudiant;
-import tn.esprit.tpfoyer.Service.EtudiantServiceImp;
+import tn.esprit.tpfoyer.Service.IEtudiantService;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/etudiants")
 public class EtudiantController {
-    EtudiantServiceImp etudiantService;
+    IEtudiantService etudiantService;
 
     @GetMapping("/all")
     public List<Etudiant> getEtudiants() {

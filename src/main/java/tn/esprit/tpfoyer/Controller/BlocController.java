@@ -3,7 +3,7 @@ package tn.esprit.tpfoyer.Controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.Model.Bloc;
-import tn.esprit.tpfoyer.Service.BlocServiceImp;
+import tn.esprit.tpfoyer.Service.IBlocService;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/blocs")
 public class BlocController {
-    BlocServiceImp blocService;
+    IBlocService blocService;
 
     @GetMapping("/all")
     public List<Bloc> getBlocs() {
