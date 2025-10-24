@@ -21,12 +21,14 @@ public class BlocController {
     }
 
     @PostMapping("/add")
+    //b is Bloc okey
     public Bloc addBloc(@RequestBody Bloc b) {
         Bloc bloc = blocService.addBloc(b);
         return bloc;
     }
 
     @PutMapping("/update")
+    //b is Bloc okey
     public Bloc updateBloc(@RequestBody Bloc b) {
         Bloc bloc = blocService.updateBloc(b);
         return bloc;
@@ -43,8 +45,8 @@ public class BlocController {
     }
 
     @GetMapping("/by-foyer-capacite/{capaciteFoyer}")
-    public List<Bloc> getBlocsByFoyerCapacite(@PathVariable("capaciteFoyer") String capaciteFoyer) {
-        return blocService.retrieveBlocsByFoyerCapacite(capaciteFoyer);
+    public List<Bloc> getBlocsByFoyerCapacite(@PathVariable("capaciteFoyer") long capaciteFoyer) {
+        return blocService.retrieveBlocsByFoyerCapacite(String.valueOf(capaciteFoyer));
     }
 
     @GetMapping("/by-chambre-type/{typeChambre}")
